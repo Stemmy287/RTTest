@@ -1,10 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
+import {Login} from '../modules/authModule/components/Login/Login';
 
 export function App() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.text}>Hello</Text>
+			<Login />
+			<StatusBar barStyle="dark-content" backgroundColor="#f8f8fa" />
 		</View>
 	);
 }
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
 		width: '100%',
 		alignItems: 'center',
 		justifyContent: 'center',
+		backgroundColor: '#f8f8fa',
 	},
 	text: {
 		fontSize: 30,
