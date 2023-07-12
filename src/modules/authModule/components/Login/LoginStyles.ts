@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
 		rowGap: 90,
 		alignItems: 'center',
 		justifyContent: 'center',
+		paddingHorizontal: 50,
+		width: '100%',
 	},
 	title: {
 		color: '#46484c',
@@ -13,8 +15,9 @@ export const styles = StyleSheet.create({
 	},
 	inputsContainer: {
 		rowGap: 15,
+		width: '100%',
 	},
 	buttonContainer: {
-		width: 300,
+		width: '100%',
 	},
 });
