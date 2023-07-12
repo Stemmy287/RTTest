@@ -12,7 +12,7 @@ type PropsType = {
 
 export const Input = ({title, value, onChange, onBlur, password}: PropsType) => {
 	return (
-		<View>
+		<View style={styles.container}>
 			{title && <Text style={styles.title}>{title}</Text>}
 			<TextInput
 				style={styles.input}

@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+	container: {
+		width: '100%',
+	},
 	title: {
 		fontSize: 14,
 		fontWeight: '400',
@@ -12,7 +15,6 @@ export const styles = StyleSheet.create({
 		borderStyle: 'solid',
 		borderColor: '#c3c3c5',
 		borderRadius: 10,
-		width: 300,
 		height: 50,
 		color: '#46484c',
 		fontSize: 20,
