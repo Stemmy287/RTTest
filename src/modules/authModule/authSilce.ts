@@ -1,11 +1,10 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {LoginType, UserType} from './types';
+import {LoginType} from './types';
 import {authApi} from './authApi';
 
 export const login = createAsyncThunk('auth/login', async (param: LoginType, {rejectWithValue}) => {
 	try {
 		const res = await authApi.login(param);
-		console.log(res.headers!.uid);
 		if (res.ok) {
 			return {
 				user: {
@@ -29,14 +28,19 @@ export const login = createAsyncThunk('auth/login', async (param: LoginType, {re
 const slice = createSlice({
 	name: 'auth',
 	initialState: {
-		user: {} as UserType,
+		isLoggedIn: false,
 	},
-	reducers: {},
+	reducers: {
+		logout(state) {
+			state.isLoggedIn = false;
+		},
+	},
 	extraReducers: builder => {
-		builder.addCase(login.fulfilled, (state, action) => {
-			state.user = action.payload.user;
+		builder.addCase(login.fulfilled, state => {
+			state.isLoggedIn = true;
 		});
 	},
 });
 
 export const authReducer = slice.reducer;
+export const {logout} = slice.actions;
