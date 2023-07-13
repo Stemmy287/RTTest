@@ -1,18 +1,49 @@
-import React from 'react';
-import {Image, Text, View} from 'react-native';
-import {styles} from '../../../modules/newsModule/components/NewsList/NewsListStyles';
-import {useAppSelector} from '../../../hooks';
+import React, {useState} from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {styles} from './HeaderStyles';
+import {useAppDispatch, useAppSelector} from '../../../hooks';
 import {userSelector} from '../../../app';
+import {PopUp} from '../PopUp/PopUp';
+import {Logout} from '../Logout/Logout';
+import {logout} from '../../../modules/authModule';
 
-export const Header = () => {
+type PropsType = {
+	back?: () => void;
+};
+
+export const Header = ({back}: PropsType) => {
 	const user = useAppSelector(userSelector);
 
+	const [isVisible, setIsVisible] = useState(false);
+
+	const dispatch = useAppDispatch();
+	const show = () => setIsVisible(true);
+	const hide = () => setIsVisible(false);
+
+	const onLogout = () => {
+		dispatch(logout());
+		hide();
+	};
+
 	return (
-		<View style={styles.header}>
-			<View style={styles.userData}>
-				<Image style={styles.ava} source={{uri: user.avatar_url}} />
-				<Text style={styles.userName}>{user.username}</Text>
+		<>
+			<View style={styles.container}>
+				{back && (
+					<TouchableOpacity activeOpacity={0.6} onPress={back}>
+						<Image style={styles.image} source={require('../../../assets/images/arrow-back-long-svgrepo-com.png')} />
+					</TouchableOpacity>
+				)}
+				<View style={styles.userData}>
+					<Image style={styles.ava} source={{uri: user.avatar_url}} />
+					<Text style={styles.userName}>{user.username}</Text>
+				</View>
+				<TouchableOpacity activeOpacity={0.6} onPress={show}>
+					<Image style={styles.image} source={require('../../../assets/images/burger-menu-svgrepo-com.png')} />
+				</TouchableOpacity>
 			</View>
-		</View>
+			<PopUp visible={isVisible}>
+				<Logout callback={onLogout} cancel={hide} />
+			</PopUp>
+		</>
 	);
 };
