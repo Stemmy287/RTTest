@@ -13,7 +13,7 @@ export const fetchNews = createAsyncThunk('news/fetchNews', async (param, {rejec
 		return rejectWithValue(e);
 	}
 });
-export const fetchNewsItem = createAsyncThunk('news/fetchNewsItem', async (newsId: string, {rejectWithValue}) => {
+export const fetchNewsItem = createAsyncThunk('news/fetchNewsItem', async (newsId: number, {rejectWithValue}) => {
 	try {
 		const res = await newsApi.fetchNewsItem(newsId);
 		if (res.ok) {

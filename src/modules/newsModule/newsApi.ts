@@ -5,7 +5,7 @@ export const newsApi = {
 	fetchNews() {
 		return instance.get<{news: NewsType[]}>('news');
 	},
-	fetchNewsItem(newsId: string) {
+	fetchNewsItem(newsId: number) {
 		return instance.get<{news: NewsType}>(`news/${newsId}`);
 	},
 };
