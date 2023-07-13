@@ -17,9 +17,8 @@ export const login = createAsyncThunk('auth/login', async (param: LoginType, {re
 					uid: res.headers!.uid,
 				},
 			};
-		} else {
-			return rejectWithValue(res.data);
 		}
+		return rejectWithValue(res.data);
 	} catch (e) {
 		return rejectWithValue(e);
 	}
