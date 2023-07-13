@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Input} from '../../../../common/comonents';
 import {Text, View} from 'react-native';
-import {ButtonStyles} from '../../../../common/comonents/Button/Button';
+import {ButtonStyles} from '../../../../common/comonents';
 import {Controller, FieldValues, useForm} from 'react-hook-form';
 import {styles} from './LoginStyles';
 import {useAppDispatch, useAppSelector} from '../../../../hooks';
@@ -11,7 +11,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamListType} from '../../../../screens';
 import {isLoggedInSelector} from '../../authSelectors';
 
-export const Login = ({navigation}: NativeStackScreenProps<StackParamListType>) => {
+export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, 'login'>) => {
 	const dispatch = useAppDispatch();
 
 	const isLoggedIn = useAppSelector(isLoggedInSelector);
