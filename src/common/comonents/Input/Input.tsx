@@ -8,19 +8,21 @@ type PropsType = {
 	onChange: (e: any) => void;
 	onBlur: () => void;
 	password?: boolean;
+	error?: string;
 };
 
-export const Input = ({title, value, onChange, onBlur, password}: PropsType) => {
+export const Input = ({title, value, onChange, onBlur, password, error}: PropsType) => {
 	return (
-		<View style={styles.container}>
-			{title && <Text style={styles.title}>{title}</Text>}
+		<View style={styles().container}>
+			{title && <Text style={styles().title}>{title}</Text>}
 			<TextInput
-				style={styles.input}
+				style={styles(error).input}
 				value={value}
 				onChangeText={onChange}
 				onBlur={onBlur}
 				secureTextEntry={password}
 			/>
+			{error && <Text style={styles().error}>{error}</Text>}
 		</View>
 	);
 };
