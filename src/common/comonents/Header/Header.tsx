@@ -37,7 +37,7 @@ export const Header = ({back}: PropsType) => {
 					</TouchableOpacity>
 				)}
 				<View style={styles.userData}>
-					<Image style={styles.ava} source={{uri: user.avatar_url}} />
+					{user.avatar_url && <Image style={styles.ava} source={{uri: user.avatar_url}} />}
 					<Text style={styles.userName}>{user.username}</Text>
 				</View>
 				<TouchableOpacity activeOpacity={0.6} onPress={show}>
