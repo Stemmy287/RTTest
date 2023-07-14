@@ -6,6 +6,6 @@ module.exports = {
 		quotes: ['warn', 'single'],
 		'jsx-quotes': ['warn', 'prefer-double'],
 		'prefer-const': 'warn',
-		'max-len': ['warn', {code: 125}],
+		'max-len': ['warn', {code: 120}],
 	},
 };
