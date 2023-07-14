@@ -9,13 +9,14 @@ type PropsType = {
 };
 
 export const LogoutButton = ({callback, title, cancelButton}: PropsType) => {
-	const style = cancelButton
-		? ({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#d2d2d3' : '#f8f8fa'}, styles.buttonCancel]
-		: ({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#d2d2d3' : '#f8f8fa'}, styles.button];
+	const style = ({pressed}: {pressed: boolean}) => [
+		{backgroundColor: pressed ? '#d2d2d3' : '#f8f8fa'},
+		styles(cancelButton).button,
+	];
 
 	return (
 		<Pressable style={style} onPress={callback}>
-			<Text style={cancelButton ? styles.textButtonCancel : styles.textButton}>{title}</Text>
+			<Text style={styles(cancelButton).textButton}>{title}</Text>
 		</Pressable>
 	);
 };
