@@ -19,7 +19,7 @@ export const login = createAsyncThunk('auth/login', async (param: LoginType, {re
 				},
 			};
 		}
-		return rejectWithValue(res.data);
+		return rejectWithValue(res.data!.errors[0]);
 	} catch (e) {
 		return rejectWithValue(e);
 	}

@@ -8,7 +8,7 @@ export const fetchNews = createAsyncThunk('news/fetchNews', async (param, {rejec
 		if (res.ok) {
 			return res.data!.news;
 		}
-		return res.data;
+		return rejectWithValue(res.data!.errors[0]);
 	} catch (e) {
 		return rejectWithValue(e);
 	}
@@ -19,7 +19,7 @@ export const fetchNewsItem = createAsyncThunk('news/fetchNewsItem', async (newsI
 		if (res.ok) {
 			return res.data!.news;
 		}
-		return res.data;
+		return rejectWithValue(res.data!.errors[0]);
 	} catch (e) {
 		return rejectWithValue(e);
 	}
