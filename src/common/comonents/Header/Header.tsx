@@ -44,7 +44,7 @@ export const Header = ({back}: PropsType) => {
 					<Image style={styles.image} source={require(logoutImage)} />
 				</TouchableOpacity>
 			</View>
-			<PopUp visible={isVisible}>
+			<PopUp visible={isVisible} onClose={hide}>
 				<Logout callback={onLogout} cancel={hide} />
 			</PopUp>
 		</>
