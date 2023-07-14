@@ -3,8 +3,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {Login} from '../modules/authModule';
 import {StackParamListType} from './types';
-import {NewsList} from '../modules/newsModule/components/NewsList/NewsList';
-import {FullNewsItem} from '../modules/newsModule/components/FullNewsItem/FullNewsItem';
+import {NewsList} from '../modules/newsModule';
+import {FullNewsItem} from '../modules/newsModule';
 
 const Stack = createNativeStackNavigator<StackParamListType>();
 

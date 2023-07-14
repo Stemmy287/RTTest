@@ -1,6 +1,7 @@
 import React from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {styles} from './LogoutStyles';
+import {LogoutButton} from './LogoutButton/LogoutButton';
 
 type PropsType = {
 	callback: () => void;
@@ -13,16 +14,8 @@ export const Logout = ({callback, cancel}: PropsType) => {
 			<View style={styles.notify}>
 				<Text style={styles.message}>Выйти из аккаунта?</Text>
 			</View>
-			<Pressable
-				style={({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#d2d2d3' : '#f8f8fa'}, styles.button]}
-				onPress={callback}>
-				<Text style={styles.textButton}>Выйти</Text>
-			</Pressable>
-			<Pressable
-				style={({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#d2d2d3' : '#f8f8fa'}, styles.buttonCancel]}
-				onPress={cancel}>
-				<Text>Отмена</Text>
-			</Pressable>
+			<LogoutButton callback={callback} title="Выйти" />
+			<LogoutButton callback={cancel} title="Отмена" cancelButton />
 		</View>
 	);
 };

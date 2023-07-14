@@ -25,12 +25,15 @@ export const Header = ({back}: PropsType) => {
 		hide();
 	};
 
+	const arrowBackImage = '../../../assets/images/arrow-back-long-svgrepo-com.png';
+	const logoutImage = '../../../assets/images/logout-svgrepo-com.png';
+
 	return (
 		<>
 			<View style={styles.container}>
 				{back && (
 					<TouchableOpacity activeOpacity={0.6} onPress={back}>
-						<Image style={styles.image} source={require('../../../assets/images/arrow-back-long-svgrepo-com.png')} />
+						<Image style={styles.image} source={require(arrowBackImage)} />
 					</TouchableOpacity>
 				)}
 				<View style={styles.userData}>
@@ -38,7 +41,7 @@ export const Header = ({back}: PropsType) => {
 					<Text style={styles.userName}>{user.username}</Text>
 				</View>
 				<TouchableOpacity activeOpacity={0.6} onPress={show}>
-					<Image style={styles.image} source={require('../../../assets/images/burger-menu-svgrepo-com.png')} />
+					<Image style={styles.image} source={require(logoutImage)} />
 				</TouchableOpacity>
 			</View>
 			<PopUp visible={isVisible}>

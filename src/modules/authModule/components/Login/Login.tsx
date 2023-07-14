@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
-import {Input} from '../../../../common/comonents';
+import {Button, Input} from '../../../../common/comonents';
 import {Text, View} from 'react-native';
-import {ButtonStyles} from '../../../../common/comonents';
 import {Controller, FieldValues, useForm} from 'react-hook-form';
 import {styles} from './LoginStyles';
 import {useAppDispatch, useAppSelector} from '../../../../hooks';
@@ -13,12 +12,12 @@ import {isLoggedInSelector} from '../../authSelectors';
 
 export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, 'login'>) => {
 	const dispatch = useAppDispatch();
-
 	const isLoggedIn = useAppSelector(isLoggedInSelector);
 
-	const {control, handleSubmit} = useForm();
-	const onSubmit = (data: FieldValues) => {
-		dispatch(login(data as LoginType));
+	const {control, handleSubmit, reset} = useForm();
+	const onSubmit = async (data: FieldValues) => {
+		await dispatch(login(data as LoginType));
+		reset();
 	};
 
 	useEffect(() => {
@@ -29,25 +28,25 @@ export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, '
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Login</Text>
+			<Text style={styles.title}>Логин</Text>
 			<View style={styles.inputsContainer}>
 				<Controller
 					control={control}
 					render={({field: {value, onChange, onBlur}}) => (
-						<Input value={value} onChange={onChange} onBlur={onBlur} title="email" />
+						<Input value={value} onChange={onChange} onBlur={onBlur} title="Почта" />
 					)}
 					name="email"
 				/>
 				<Controller
 					control={control}
 					render={({field: {value, onChange, onBlur}}) => (
-						<Input value={value} onChange={onChange} onBlur={onBlur} title="password" password />
+						<Input value={value} onChange={onChange} onBlur={onBlur} title="Пароль" password />
 					)}
 					name="password"
 				/>
 			</View>
 			<View style={styles.buttonContainer}>
-				<ButtonStyles title="Login" callback={handleSubmit(onSubmit)} />
+				<Button title="Войти" callback={handleSubmit(onSubmit)} />
 			</View>
 		</View>
 	);

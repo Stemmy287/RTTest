@@ -7,11 +7,11 @@ type PropsType = {
 	callback?: () => void;
 };
 
-export const ButtonStyles = ({title, callback}: PropsType) => {
+export const Button = ({title, callback}: PropsType) => {
+	const style = ({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#e1255a' : '#f8346b'}, styles.button];
+
 	return (
-		<Pressable
-			style={({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#e1255a' : '#f8346b'}, styles.button]}
-			onPress={callback}>
+		<Pressable style={style} onPress={callback}>
 			<Text style={styles.title}>{title}</Text>
 		</Pressable>
 	);
