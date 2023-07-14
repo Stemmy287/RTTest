@@ -16,26 +16,4 @@ export const styles = StyleSheet.create({
 		fontSize: 20,
 		fontWeight: '700',
 	},
-	button: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		height: 50,
-		borderTopWidth: 1,
-		borderTopStyle: 'solid',
-		borderTopColor: '#cccfd3',
-	},
-	textButton: {
-		color: '#E1255A',
-		fontSize: 16,
-	},
-	buttonCancel: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		height: 50,
-		borderTopWidth: 1,
-		borderTopStyle: 'solid',
-		borderTopColor: '#cccfd3',
-		borderBottomLeftRadius: 12,
-		borderBottomRightRadius: 12,
-	},
 });
