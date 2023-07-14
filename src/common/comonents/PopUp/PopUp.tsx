@@ -4,12 +4,15 @@ import {styles} from './PopUpStyles';
 
 type PropsType = {
 	visible: boolean;
+	onClose?: () => void;
 };
 
-export const PopUp = ({visible, children}: PropsWithChildren<PropsType>) => {
+export const PopUp = ({visible, children, onClose}: PropsWithChildren<PropsType>) => {
 	return (
 		<Modal visible={visible} transparent={true} animationType="fade">
-			<View style={styles.container}>{children}</View>
+			<View style={styles.container} onTouchStart={onClose}>
+				{children}
+			</View>
 		</Modal>
 	);
 };

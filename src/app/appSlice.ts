@@ -6,6 +6,7 @@ const slice = createSlice({
 	initialState: {
 		user: {} as UserType,
 		error: null as string | null,
+		isLoading: false,
 	},
 	reducers: {
 		setError(state, action: PayloadAction<string | null>) {
@@ -17,9 +18,22 @@ const slice = createSlice({
 			state.user = action.payload.user;
 		});
 		builder.addMatcher(
+			action => action.type.endsWith('pending'),
+			state => {
+				state.isLoading = true;
+			},
+		);
+		builder.addMatcher(
 			action => action.type.endsWith('rejected'),
 			(state, action: PayloadAction<string | null>) => {
 				state.error = action.payload;
+				state.isLoading = false;
+			},
+		);
+		builder.addMatcher(
+			action => action.type.endsWith('fulfilled'),
+			state => {
+				state.isLoading = false;
 			},
 		);
 	},

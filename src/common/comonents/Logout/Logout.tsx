@@ -10,7 +10,12 @@ type PropsType = {
 
 export const Logout = ({callback, cancel}: PropsType) => {
 	return (
-		<View style={styles.logout}>
+		<View
+			style={styles.logout}
+			onStartShouldSetResponder={() => true}
+			onTouchStart={e => {
+				e.stopPropagation();
+			}}>
 			<View style={styles.notify}>
 				<Text style={styles.message}>Выйти из аккаунта?</Text>
 			</View>

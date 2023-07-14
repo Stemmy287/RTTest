@@ -8,10 +8,13 @@ import {useAppDispatch, useAppSelector} from '../../../../hooks';
 import {fetchNewsItem} from '../../newsSlice';
 import {newsItemSelector} from '../../newsSelectors';
 import {isLoggedInSelector} from '../../../authModule';
+import {isLoadingSelector} from '../../../../app';
+import {Loading} from '../../../../common/comonents/Loading/Loading';
 
 export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackParamListType, 'newsItem'>) => {
 	const newsItem = useAppSelector(newsItemSelector);
 	const isLoggedIn = useAppSelector(isLoggedInSelector);
+	const isLoading = useAppSelector(isLoadingSelector);
 
 	const dispatch = useAppDispatch();
 	const onBack = () => {
@@ -27,6 +30,10 @@ export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackPa
 			navigation.navigate('login');
 		}
 	}, [isLoggedIn, navigation]);
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<View style={styles.container}>

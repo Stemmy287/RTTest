@@ -9,10 +9,13 @@ import {LoginType} from '../../types';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamListType} from '../../../../screens';
 import {isLoggedInSelector} from '../../authSelectors';
+import {isLoadingSelector} from '../../../../app';
+import {Loading} from '../../../../common/comonents/Loading/Loading';
 
 export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, 'login'>) => {
 	const dispatch = useAppDispatch();
 	const isLoggedIn = useAppSelector(isLoggedInSelector);
+	const isLoading = useAppSelector(isLoadingSelector);
 
 	const {
 		control,
@@ -30,6 +33,10 @@ export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, '
 			navigation.navigate('news');
 		}
 	}, [isLoggedIn, navigation]);
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<View style={styles.container}>

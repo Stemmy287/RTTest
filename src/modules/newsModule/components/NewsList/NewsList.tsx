@@ -9,9 +9,12 @@ import {fetchNews} from '../../newsSlice';
 import {newsSelector} from '../../newsSelectors';
 import {NewsItem} from '../NewsItem/NewsItem';
 import {isLoggedInSelector} from '../../../authModule';
+import {isLoadingSelector} from '../../../../app';
+import {Loading} from '../../../../common/comonents/Loading/Loading';
 
 export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType, 'news'>) => {
 	const news = useAppSelector(newsSelector);
+	const isLoading = useAppSelector(isLoadingSelector);
 
 	const dispatch = useAppDispatch();
 
@@ -26,6 +29,10 @@ export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType
 			navigation.navigate('login');
 		}
 	}, [isLoggedIn, navigation]);
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<View style={styles.container}>
