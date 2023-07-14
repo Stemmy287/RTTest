@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {FlatList, RefreshControl, TouchableOpacity, View} from 'react-native';
 import {useAppDispatch, useAppSelector} from '../../../../hooks';
-import {isLoggedInSelector} from '../../../authModule/authSelectors';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamListType} from '../../../../screens';
 import {styles} from './NewsListStyles';
@@ -9,9 +8,9 @@ import {Header} from '../../../../common/comonents';
 import {fetchNews} from '../../newsSlice';
 import {newsSelector} from '../../newsSelectors';
 import {NewsItem} from '../NewsItem/NewsItem';
+import {isLoggedInSelector} from '../../../authModule';
 
 export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType, 'news'>) => {
-	const isLoggedIn = useAppSelector(isLoggedInSelector);
 	const news = useAppSelector(newsSelector);
 
 	const dispatch = useAppDispatch();
@@ -19,6 +18,8 @@ export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType
 	useEffect(() => {
 		dispatch(fetchNews());
 	}, [dispatch]);
+
+	const isLoggedIn = useAppSelector(isLoggedInSelector);
 
 	useEffect(() => {
 		if (!isLoggedIn) {

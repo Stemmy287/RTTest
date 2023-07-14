@@ -5,13 +5,13 @@ import {Image, Text, View} from 'react-native';
 import {Header} from '../../../../common/comonents';
 import {styles} from './FullNewsItemStyles';
 import {useAppDispatch, useAppSelector} from '../../../../hooks';
-import {isLoggedInSelector} from '../../../authModule/authSelectors';
 import {fetchNewsItem} from '../../newsSlice';
 import {newsItemSelector} from '../../newsSelectors';
+import {isLoggedInSelector} from '../../../authModule';
 
 export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackParamListType, 'newsItem'>) => {
-	const isLoggedIn = useAppSelector(isLoggedInSelector);
 	const newsItem = useAppSelector(newsItemSelector);
+	const isLoggedIn = useAppSelector(isLoggedInSelector);
 
 	const dispatch = useAppDispatch();
 	const onBack = () => {
@@ -32,7 +32,7 @@ export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackPa
 		<View style={styles.container}>
 			<Header back={onBack} />
 			<View style={styles.content}>
-				<Image style={styles.image} source={{uri: newsItem.image_url}} />
+				{newsItem.image_url && <Image style={styles.image} source={{uri: newsItem.image_url}} />}
 				<Text style={styles.title}>{newsItem.title}</Text>
 				<Text style={styles.desc}>{newsItem.short_text}</Text>
 			</View>

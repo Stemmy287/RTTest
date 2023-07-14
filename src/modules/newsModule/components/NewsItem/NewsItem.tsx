@@ -11,7 +11,7 @@ type PropsType = {
 export const NewsItem = ({title, short_text, image_url}: PropsType) => {
 	return (
 		<View style={styles.container}>
-			<Image style={styles.image} source={{uri: image_url}} />
+			{image_url && <Image style={styles.image} source={{uri: image_url}} />}
 			<View style={styles.contentWrapper}>
 				<Text style={styles.title}>{title}</Text>
 				<Text style={styles.desc}>{short_text}</Text>
