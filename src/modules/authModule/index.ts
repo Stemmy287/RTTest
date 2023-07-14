@@ -1,4 +1,6 @@
-export * from '../authModule/components/Login/Login';
-export * from '../authModule/authApi';
-export * from '../authModule/authSilce';
-export * from '../authModule/types';
+export * from './components/Login/Login';
+
+export * from './authApi';
+export * from './authSilce';
+export * from './authSelectors';
+export * from './types';
