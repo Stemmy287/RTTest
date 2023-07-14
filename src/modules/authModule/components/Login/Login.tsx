@@ -14,7 +14,12 @@ export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, '
 	const dispatch = useAppDispatch();
 	const isLoggedIn = useAppSelector(isLoggedInSelector);
 
-	const {control, handleSubmit, reset} = useForm();
+	const {
+		control,
+		handleSubmit,
+		reset,
+		formState: {errors},
+	} = useForm<LoginType>();
 	const onSubmit = async (data: FieldValues) => {
 		await dispatch(login(data as LoginType));
 		reset();
@@ -32,15 +37,24 @@ export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, '
 			<View style={styles.inputsContainer}>
 				<Controller
 					control={control}
+					rules={{required: 'Обязательное поле'}}
 					render={({field: {value, onChange, onBlur}}) => (
-						<Input value={value} onChange={onChange} onBlur={onBlur} title="Почта" />
+						<Input value={value} onChange={onChange} onBlur={onBlur} title="Почта" error={errors.email?.message} />
 					)}
 					name="email"
 				/>
 				<Controller
 					control={control}
+					rules={{required: 'Обязательное поле'}}
 					render={({field: {value, onChange, onBlur}}) => (
-						<Input value={value} onChange={onChange} onBlur={onBlur} title="Пароль" password />
+						<Input
+							value={value}
+							onChange={onChange}
+							onBlur={onBlur}
+							title="Пароль"
+							password
+							error={errors.password?.message}
+						/>
 					)}
 					name="password"
 				/>
