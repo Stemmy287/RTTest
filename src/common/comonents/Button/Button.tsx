@@ -8,7 +8,7 @@ type PropsType = {
 };
 
 export const Button = ({title, callback}: PropsType) => {
-	const style = ({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#e1255a' : '#f8346b'}, styles.button];
+	const style = ({pressed}: {pressed: boolean}) => [{backgroundColor: pressed ? '#654ace' : '#755dd5'}, styles.button];
 
 	return (
 		<Pressable style={style} onPress={callback}>
