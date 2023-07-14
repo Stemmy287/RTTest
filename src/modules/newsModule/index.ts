@@ -1,8 +1,8 @@
-export * from './components/FullNewsItem/FullNewsItem';
-export * from './components/NewsList/NewsList';
-export * from './components/NewsItem/NewsItem';
+export * from 'modules/newsModule/components/FullNewsItem/FullNewsItem';
+export * from 'modules/newsModule/components/NewsList/NewsList';
+export * from 'modules/newsModule/components/NewsItem/NewsItem';
 
-export * from './types';
-export * from './newsApi';
-export * from './newsSlice';
-export * from './newsSelectors';
+export * from 'modules/newsModule/types';
+export * from 'modules/newsModule/newsApi';
+export * from 'modules/newsModule/newsSlice';
+export * from 'modules/newsModule/newsSelectors';

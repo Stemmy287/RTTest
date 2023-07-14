@@ -1,1 +1,1 @@
-export * from './instanceApi';
+export * from 'common/constants/instanceApi';

@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {StackParamListType} from '../../../../screens';
+import {StackParamListType} from 'screens';
 import {Image, Text, View} from 'react-native';
-import {Header} from '../../../../common/comonents';
+import {Header} from 'common/comonents';
 import {styles} from './FullNewsItemStyles';
-import {useAppDispatch, useAppSelector} from '../../../../hooks';
-import {fetchNewsItem} from '../../newsSlice';
-import {newsItemSelector} from '../../newsSelectors';
-import {isLoggedInSelector} from '../../../authModule';
-import {isLoadingSelector} from '../../../../app';
-import {Loading} from '../../../../common/comonents/Loading/Loading';
+import {useAppDispatch, useAppSelector} from 'hooks';
+import {fetchNewsItem} from 'modules/newsModule';
+import {newsItemSelector} from 'modules/newsModule';
+import {isLoggedInSelector} from 'modules/authModule';
+import {isLoadingSelector} from 'app';
+import {Loading} from 'common/comonents';
 
 export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackParamListType, 'newsItem'>) => {
 	const newsItem = useAppSelector(newsItemSelector);

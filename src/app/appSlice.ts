@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {login, UserType} from '../modules/authModule';
+import {login, UserType} from 'modules/authModule';
 
 const slice = createSlice({
 	name: 'app',

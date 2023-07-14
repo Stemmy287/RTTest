@@ -1,2 +1,2 @@
-export * from './Navigations';
-export * from './types';
+export * from 'screens/Navigations';
+export * from 'screens/types';

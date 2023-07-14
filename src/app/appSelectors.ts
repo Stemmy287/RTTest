@@ -1,4 +1,4 @@
-import {AppRootStateType} from '../store';
+import {AppRootStateType} from 'store';
 
 export const userSelector = (state: AppRootStateType) => state.app.user;
 export const errorSelector = (state: AppRootStateType) => state.app.error;

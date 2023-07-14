@@ -1,10 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {Login} from '../modules/authModule';
+import {Login} from 'modules/authModule';
 import {StackParamListType} from './types';
-import {FullNewsItem, NewsList} from '../modules/newsModule';
-import {ErrorBar} from '../common/comonents';
+import {FullNewsItem, NewsList} from 'modules/newsModule';
+import {ErrorBar} from 'common/comonents';
 
 const Stack = createNativeStackNavigator<StackParamListType>();
 

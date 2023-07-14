@@ -1,16 +1,16 @@
 import React, {useEffect} from 'react';
-import {Button, Input} from '../../../../common/comonents';
+import {Button, Input} from 'common/comonents';
 import {Text, View} from 'react-native';
 import {Controller, FieldValues, useForm} from 'react-hook-form';
 import {styles} from './LoginStyles';
-import {useAppDispatch, useAppSelector} from '../../../../hooks';
-import {login} from '../../authSilce';
-import {LoginType} from '../../types';
+import {useAppDispatch, useAppSelector} from 'hooks';
+import {login} from 'modules/authModule';
+import {LoginType} from 'modules/authModule';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {StackParamListType} from '../../../../screens';
-import {isLoggedInSelector} from '../../authSelectors';
-import {isLoadingSelector} from '../../../../app';
-import {Loading} from '../../../../common/comonents/Loading/Loading';
+import {StackParamListType} from 'screens';
+import {isLoggedInSelector} from 'modules/authModule';
+import {isLoadingSelector} from 'app';
+import {Loading} from 'common/comonents';
 
 export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, 'login'>) => {
 	const dispatch = useAppDispatch();

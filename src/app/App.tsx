@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {store} from '../store';
-import {Navigations} from '../screens';
+import {store} from 'store';
+import {Navigations} from 'screens';
 import {StatusBar} from 'react-native';
 
 export function App() {

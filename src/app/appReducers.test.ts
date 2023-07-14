@@ -1,4 +1,4 @@
-import {login, UserType} from '../modules/authModule';
+import {login, UserType} from 'modules/authModule';
 import {appReducer} from './appSlice';
 
 let startState = {} as {user: UserType};
