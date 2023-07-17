@@ -8,7 +8,6 @@ import {Header} from 'common/comonents';
 import {fetchNews} from 'modules/newsModule';
 import {newsSelector} from 'modules/newsModule';
 import {NewsItem} from 'modules/newsModule';
-import {isLoggedInSelector} from 'modules/authModule';
 import {isLoadingSelector} from 'app';
 import {Loading} from 'common/comonents';
 
@@ -21,14 +20,6 @@ export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType
 	useEffect(() => {
 		dispatch(fetchNews());
 	}, [dispatch]);
-
-	const isLoggedIn = useAppSelector(isLoggedInSelector);
-
-	useEffect(() => {
-		if (!isLoggedIn) {
-			navigation.navigate('login');
-		}
-	}, [isLoggedIn, navigation]);
 
 	if (isLoading) {
 		return <Loading />;
@@ -46,7 +37,7 @@ export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType
 						onPress={() => {
 							navigation.navigate('newsItem', {newsId: item.id});
 						}}>
-						<NewsItem title={item.title} short_text={item.short_text} image_url={item.image_url} />
+						<NewsItem news={item} />
 					</TouchableOpacity>
 				)}
 				showsVerticalScrollIndicator={false}

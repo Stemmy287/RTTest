@@ -7,13 +7,11 @@ import {styles} from './FullNewsItemStyles';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {fetchNewsItem} from 'modules/newsModule';
 import {newsItemSelector} from 'modules/newsModule';
-import {isLoggedInSelector} from 'modules/authModule';
 import {isLoadingSelector} from 'app';
 import {Loading} from 'common/comonents';
 
 export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackParamListType, 'newsItem'>) => {
 	const newsItem = useAppSelector(newsItemSelector);
-	const isLoggedIn = useAppSelector(isLoggedInSelector);
 	const isLoading = useAppSelector(isLoadingSelector);
 
 	const dispatch = useAppDispatch();
@@ -24,12 +22,6 @@ export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackPa
 	useEffect(() => {
 		dispatch(fetchNewsItem(route.params.newsId));
 	}, [dispatch, route]);
-
-	useEffect(() => {
-		if (!isLoggedIn) {
-			navigation.navigate('login');
-		}
-	}, [isLoggedIn, navigation]);
 
 	if (isLoading) {
 		return <Loading />;

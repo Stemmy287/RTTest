@@ -1,20 +1,14 @@
-import React, {useEffect} from 'react';
-import {Button, Input} from 'common/comonents';
+import React from 'react';
+import {Button, Input, Loading} from 'common/comonents';
 import {Text, View} from 'react-native';
 import {Controller, FieldValues, useForm} from 'react-hook-form';
 import {styles} from './LoginStyles';
 import {useAppDispatch, useAppSelector} from 'hooks';
-import {login} from 'modules/authModule';
-import {LoginType} from 'modules/authModule';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {StackParamListType} from 'screens';
-import {isLoggedInSelector} from 'modules/authModule';
+import {login, LoginType} from 'modules/authModule';
 import {isLoadingSelector} from 'app';
-import {Loading} from 'common/comonents';
 
-export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, 'login'>) => {
+export const Login = () => {
 	const dispatch = useAppDispatch();
-	const isLoggedIn = useAppSelector(isLoggedInSelector);
 	const isLoading = useAppSelector(isLoadingSelector);
 
 	const {
@@ -27,12 +21,6 @@ export const Login = ({navigation}: NativeStackScreenProps<StackParamListType, '
 		await dispatch(login(data as LoginType));
 		reset();
 	};
-
-	useEffect(() => {
-		if (isLoggedIn) {
-			navigation.navigate('news');
-		}
-	}, [isLoggedIn, navigation]);
 
 	if (isLoading) {
 		return <Loading />;
