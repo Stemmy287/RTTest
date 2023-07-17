@@ -36,7 +36,9 @@ export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackPa
 			<View style={styles.content}>
 				{newsItem.image_url && <Image style={styles.image} source={{uri: newsItem.image_url}} />}
 				<Text style={styles.title}>{newsItem.title}</Text>
-				<RenderHtml source={{html: newsItem.body}} tagsStyles={nativeTagsStyle} contentWidth={width} />
+				{newsItem.body && (
+					<RenderHtml source={{html: newsItem.body}} tagsStyles={nativeTagsStyle} contentWidth={width} />
+				)}
 			</View>
 		</View>
 	);
