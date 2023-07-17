@@ -1,14 +1,15 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {styles} from './NewsItemStyles';
+import {NewsType} from 'modules/newsModule';
 
 type PropsType = {
-	title: string;
-	image_url: string;
-	short_text: string;
+	news: NewsType;
 };
 
-export const NewsItem = ({title, short_text, image_url}: PropsType) => {
+export const NewsItem = ({news}: PropsType) => {
+	const {image_url, title, short_text} = news;
+
 	return (
 		<View style={styles.container}>
 			{image_url && <Image style={styles.image} source={{uri: image_url}} />}
