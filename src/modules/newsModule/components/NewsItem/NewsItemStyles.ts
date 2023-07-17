@@ -22,8 +22,11 @@ export const styles = StyleSheet.create({
 		fontSize: 23,
 		color: '#46484c',
 	},
-	desc: {
-		color: '#73767c',
-		fontSize: 15,
-	},
 });
+
+export const nativeTagsStyle = {
+	p: {
+		fontSize: 15,
+		color: '#73767c',
+	},
+};

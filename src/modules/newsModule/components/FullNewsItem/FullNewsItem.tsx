@@ -1,20 +1,21 @@
 import React, {useEffect} from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, useWindowDimensions, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamListType} from 'screens';
+import RenderHtml from 'react-native-render-html';
 
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {isLoadingSelector} from 'app';
-import {Header} from 'common/comonents';
-import {Loading} from 'common/comonents';
+import {Header, Loading} from 'common/comonents';
 
-import {fetchNewsItem} from 'modules/newsModule';
-import {newsItemSelector} from 'modules/newsModule';
-import {styles} from './FullNewsItemStyles';
+import {fetchNewsItem, newsItemSelector} from 'modules/newsModule';
+import {nativeTagsStyle, styles} from './FullNewsItemStyles';
 
 export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackParamListType, 'newsItem'>) => {
 	const newsItem = useAppSelector(newsItemSelector);
 	const isLoading = useAppSelector(isLoadingSelector);
+
+	const {width} = useWindowDimensions();
 
 	const dispatch = useAppDispatch();
 	const onBack = () => {
@@ -35,7 +36,7 @@ export const FullNewsItem = ({navigation, route}: NativeStackScreenProps<StackPa
 			<View style={styles.content}>
 				{newsItem.image_url && <Image style={styles.image} source={{uri: newsItem.image_url}} />}
 				<Text style={styles.title}>{newsItem.title}</Text>
-				<Text style={styles.desc}>{newsItem.short_text}</Text>
+				<RenderHtml source={{html: newsItem.body}} tagsStyles={nativeTagsStyle} contentWidth={width} />
 			</View>
 		</View>
 	);
