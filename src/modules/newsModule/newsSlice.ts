@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {NewsType} from './types';
+
 import {newsApi} from './newsApi';
+import {NewsType} from './types';
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async (param, {rejectWithValue}) => {
 	try {

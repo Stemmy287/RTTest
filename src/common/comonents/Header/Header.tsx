@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import {styles} from './HeaderStyles';
+
+import {logout} from 'modules/authModule';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {userSelector} from 'app';
 import {PopUp} from 'common/comonents';
 import {Logout} from 'common/comonents';
-import {logout} from 'modules/authModule';
+
+import {styles} from './HeaderStyles';
 
 type PropsType = {
 	back?: () => void;

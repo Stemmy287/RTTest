@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+
 import {login, UserType} from 'modules/authModule';
 
 const slice = createSlice({

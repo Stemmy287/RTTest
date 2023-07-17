@@ -1,5 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 import {Modal, View} from 'react-native';
+
 import {styles} from './PopUpStyles';
 
 type PropsType = {

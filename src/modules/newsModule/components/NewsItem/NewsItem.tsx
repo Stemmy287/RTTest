@@ -1,7 +1,8 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-import {styles} from './NewsItemStyles';
+
 import {NewsType} from 'modules/newsModule';
+import {styles} from './NewsItemStyles';
 
 type PropsType = {
 	news: NewsType;

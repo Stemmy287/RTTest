@@ -1,8 +1,9 @@
 import {AnyAction, combineReducers} from 'redux';
 import {configureStore} from '@reduxjs/toolkit';
 import thunkMiddleware, {ThunkDispatch} from 'redux-thunk';
-import {authReducer} from 'modules/authModule';
+
 import {appReducer} from 'app';
+import {authReducer} from 'modules/authModule';
 import {newsReducer} from 'modules/newsModule';
 
 const rootReducer = combineReducers({

@@ -1,6 +1,7 @@
-import {LoginType, UserType} from './types';
 import {ErrorType} from 'app';
 import {instance} from 'common/constants';
+
+import {LoginType, UserType} from './types';
 
 export const authApi = {
 	login(data: LoginType) {

@@ -1,7 +1,9 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+
+import {instance} from 'common/constants';
+
 import {LoginType} from './types';
 import {authApi} from './authApi';
-import {instance} from 'common/constants';
 
 export const login = createAsyncThunk('auth/login', async (param: LoginType, {rejectWithValue}) => {
 	try {

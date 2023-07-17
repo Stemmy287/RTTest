@@ -1,7 +1,9 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {styles} from './LogoutStyles';
+
 import {LogoutButton} from 'common/comonents';
+
+import {styles} from './LogoutStyles';
 
 type PropsType = {
 	callback: () => void;

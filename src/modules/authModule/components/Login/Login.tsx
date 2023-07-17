@@ -1,11 +1,13 @@
 import React from 'react';
-import {Button, Input, Loading} from 'common/comonents';
 import {Text, View} from 'react-native';
 import {Controller, FieldValues, useForm} from 'react-hook-form';
-import {styles} from './LoginStyles';
+
 import {useAppDispatch, useAppSelector} from 'hooks';
-import {login, LoginType} from 'modules/authModule';
 import {isLoadingSelector} from 'app';
+import {Button, Input, Loading} from 'common/comonents';
+
+import {login, LoginType} from 'modules/authModule';
+import {styles} from './LoginStyles';
 
 export const Login = () => {
 	const dispatch = useAppDispatch();

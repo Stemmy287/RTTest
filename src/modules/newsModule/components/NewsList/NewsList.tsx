@@ -1,15 +1,17 @@
 import React, {useEffect} from 'react';
 import {FlatList, RefreshControl, TouchableOpacity, View} from 'react-native';
-import {useAppDispatch, useAppSelector} from 'hooks';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamListType} from 'screens';
-import {styles} from './NewsListStyles';
+
+import {useAppDispatch, useAppSelector} from 'hooks';
+import {isLoadingSelector} from 'app';
 import {Header} from 'common/comonents';
+import {Loading} from 'common/comonents';
+
 import {fetchNews} from 'modules/newsModule';
 import {newsSelector} from 'modules/newsModule';
 import {NewsItem} from 'modules/newsModule';
-import {isLoadingSelector} from 'app';
-import {Loading} from 'common/comonents';
+import {styles} from './NewsListStyles';
 
 export const NewsList = ({navigation}: NativeStackScreenProps<StackParamListType, 'news'>) => {
 	const news = useAppSelector(newsSelector);

@@ -1,5 +1,5 @@
-import {NewsType} from './types';
 import {fetchNews, fetchNewsItem, newsReducer} from './newsSlice';
+import {NewsType} from './types';
 
 let startState: NewsType[] = [];
 

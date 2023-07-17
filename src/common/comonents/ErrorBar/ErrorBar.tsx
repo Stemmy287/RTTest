@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
+
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {errorSelector, setError} from 'app';
+
 import {styles} from './ErrorBarStyles';
 
 export const ErrorBar = () => {

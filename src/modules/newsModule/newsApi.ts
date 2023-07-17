@@ -1,6 +1,7 @@
-import {instance} from 'common/constants';
-import {NewsType} from './types';
 import {ErrorType} from 'app';
+import {instance} from 'common/constants';
+
+import {NewsType} from './types';
 
 export const newsApi = {
 	fetchNews() {
