@@ -21,6 +21,7 @@ test('set user', () => {
 			user: {} as UserType,
 			error: null,
 			isLoading: false,
+			isInitialized: false,
 		},
 		action,
 	);
